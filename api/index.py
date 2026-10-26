@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
@@ -137,6 +137,29 @@ def get_device_catalog():
     return load_catalog()
 
 
+@app.get('/robots.txt', response_class=PlainTextResponse)
+def robots():
+    return """User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://pricepredictions.vercel.app/sitemap.xml
+"""
+
+
+@app.get('/sitemap.xml', response_class=PlainTextResponse)
+def sitemap():
+    return """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pricepredictions.vercel.app/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+
+
 @app.get('/', response_class=HTMLResponse)
 def root():
     return """
@@ -146,8 +169,32 @@ def root():
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#f5f7f5" />
+      <meta name="description" content="Estimate your used phone's resale value in seconds. Compare popular mobile brands and models, choose a country, and get a personalized price estimate." />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta name="keywords" content="used phone price, mobile resale value, phone resale calculator, used mobile price predictor, smartphone valuation, iPhone resale price, Samsung resale price" />
+      <link rel="canonical" href="https://pricepredictions.vercel.app/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Revalue" />
+      <meta property="og:title" content="Used Phone Resale Price Calculator | Revalue" />
+      <meta property="og:description" content="Find an estimated resale value for your used phone. Choose from popular brands and models or enter a custom device and price." />
+      <meta property="og:url" content="https://pricepredictions.vercel.app/" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="Used Phone Resale Price Calculator | Revalue" />
+      <meta name="twitter:description" content="Estimate your used smartphone's resale value with Revalue's phone price calculator." />
       <link rel="icon" href="data:," />
-      <title>Revalue — Phone resale estimate</title>
+      <title>Used Phone Resale Price Calculator | Revalue</title>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Revalue Used Phone Resale Price Calculator",
+          "url": "https://pricepredictions.vercel.app/",
+          "description": "Estimate the resale value of a used smartphone by brand, model, original price, age, and condition.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript"
+        }
+      </script>
       <style>
         :root {
           color-scheme: light;

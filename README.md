@@ -79,6 +79,16 @@ The prediction endpoint is available at `/api/predict` and accepts a JSON POST
 request. The `/api/catalog` endpoint returns available countries, brands and
 models. The `/` route serves the predictor page.
 
+## Search engine optimization
+
+The deployed site includes a descriptive page title and meta description,
+canonical and social-sharing metadata, WebApplication structured data, and
+`robots.txt` and `sitemap.xml` routes. Once the production domain is live,
+submit `https://pricepredictions.vercel.app/sitemap.xml` in Google Search
+Console and Bing Webmaster Tools, and verify ownership of the domain there.
+Search engines decide when and where a site appears; metadata and sitemap
+submission do not guarantee rankings or immediate indexing.
+
 You can also generate a custom dataset size:
 
 ```bash
