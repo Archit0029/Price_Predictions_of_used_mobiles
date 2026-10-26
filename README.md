@@ -102,7 +102,7 @@ Make sure you have installed:
 1. On GitHub, fork the repository by clicking **Fork** at the top right of [Price_Predictions_of_used_mobiles](https://github.com/Archit0029/Price_Predictions_of_used_mobiles).
 2. Open your terminal or Command Prompt and clone your copy:
 ```bash
-git clone https://github.com/<your-username>/Price_Predictions_of_used_mobiles.git
+git clone https://github.com/Archit0029/Price_Predictions_of_used_mobiles.git
 cd Price_Predictions_of_used_mobiles
 ```
 
