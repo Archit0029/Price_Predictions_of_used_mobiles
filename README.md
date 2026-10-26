@@ -87,54 +87,101 @@ used_mobile_price_prediction/
 
 ---
 
-## 🚀 Running Locally
+## 🛠️ Step-by-Step Cloning & Setup Guide
 
-### 1. Clone the repository
+Want to run this project on your own machine or deploy your own copy of the website? Follow these easy steps:
+
+### Prerequisites
+Make sure you have installed:
+- [Git](https://git-scm.com/)
+- [Python 3.10+](https://www.python.org/downloads/)
+
+---
+
+### Step 1: Fork & Clone the Repository
+1. On GitHub, fork the repository by clicking **Fork** at the top right of [Price_Predictions_of_used_mobiles](https://github.com/Archit0029/Price_Predictions_of_used_mobiles).
+2. Open your terminal or Command Prompt and clone your copy:
 ```bash
-git clone https://github.com/Archit0029/Price_Predictions_of_used_mobiles.git
+git clone https://github.com/<your-username>/Price_Predictions_of_used_mobiles.git
 cd Price_Predictions_of_used_mobiles
 ```
 
-### 2. Set up virtual environment & install dependencies
-```bash
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On macOS / Linux:
-source venv/bin/activate
+---
 
+### Step 2: Create and Activate a Virtual Environment
+It is recommended to use an isolated Python environment:
+
+- **On Windows (PowerShell / CMD):**
+  ```powershell
+  python -m venv venv
+  .\venv\Scripts\activate
+  ```
+- **On macOS / Linux:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+---
+
+### Step 3: Install Required Dependencies
+Install all required libraries including FastAPI, Uvicorn, Streamlit, Pandas, and scikit-learn:
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Generate or refresh the dataset (Optional)
+---
+
+### Step 4: (Optional) Re-generate Dataset
+The repository already includes the pre-trained dataset `used_phones.csv`. If you want to customize sample size or tweak depreciation weights:
 ```bash
 python generate_dataset.py --phones 8000 --accessories 1500 --output-dir .
 ```
 
-### 4. Launch either interface
+---
 
-#### Option A: Run Streamlit UI
-```bash
-streamlit run app.py
-```
-*Opens at `http://localhost:8501`*
+### Step 5: Run the Project Locally
 
-#### Option B: Run FastAPI Production Server
+You have **two interfaces** to choose from:
+
+#### 🔹 Option A: Run the Live Website UI (FastAPI Server)
+This runs the exact same UI and API that is deployed in production:
 ```bash
 uvicorn api.index:app --reload --port 8000
 ```
-*Opens at `http://localhost:8000`*
+Open **[http://localhost:8000](http://localhost:8000)** in your browser.
+
+#### 🔹 Option B: Run the Streamlit Dashboard
+If you prefer an interactive data-science slider dashboard with training data preview:
+```bash
+streamlit run app.py
+```
+Open **[http://localhost:8501](http://localhost:8501)** in your browser.
+
+---
+
+### Step 6: Deploy Your Own Copy to Vercel (Free 1-Click Setup)
+
+Deploying your cloned website to the internet takes less than 2 minutes:
+
+1. Push your cloned repository to your GitHub account.
+2. Sign up or log in at **[Vercel](https://vercel.com/)**.
+3. Click **Add New...** ➔ **Project** and select your GitHub repository.
+4. Keep the default settings (Framework preset: `Other`, Root Directory: `./`).
+5. Click **Deploy**.
+6. Vercel will automatically read `vercel.json` and `requirements.txt` and launch your live site with an official `.vercel.app` domain!
 
 ---
 
 ## 🌐 Live Deployment on Vercel
 
-The live web application is hosted at:
+The live official web application is hosted at:  
 🔗 **[https://pricepredictions.vercel.app/](https://pricepredictions.vercel.app/)**
 
 ### Deployment Details:
-- **Platform**: Vercel Serverless Functions (Python 3.10+ runtime via `vercel.json`).
-- **REST Endpoints**:
+- **Platform**: Vercel Serverless Functions (Python runtime via `vercel.json`).
+- **REST API Endpoints**:
   - `GET /` — Responsive web application UI.
   - `GET /api/catalog` — Returns available countries, currency rates, brands, and device models.
   - `POST /api/predict` — Receives phone condition attributes and outputs estimated valuation and ranges.
@@ -149,6 +196,17 @@ The live web application is hosted at:
 | **$R^2$ Score** | **~0.96** | High proportion of price variance explained by features |
 | **Mean Absolute Error (MAE)** | **~₹1,600** | Tight prediction boundary relative to high-tier device costs |
 | **Monotonic Consistency** | **Verified** | 5G, warranty, and box/bill options strictly increase resale value |
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature suggestions are always welcome!
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
 ---
 
