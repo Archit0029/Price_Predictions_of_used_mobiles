@@ -60,11 +60,11 @@ streamlit run app.py
 
 ## Deploy to Vercel
 
-The Vercel deployment uses the FastAPI app exported from the root `index.py`
-(the local Streamlit app in `app.py` is separate). Import this GitHub
-repository into Vercel and set the project root to the repository root. The
-`pyproject.toml` entrypoint setting tells Vercel which FastAPI app to serve,
-and `requirements.txt` lists its dependencies. After pushing deployment
+The Vercel deployment runs the FastAPI app in `api/index.py` (the local
+Streamlit app in `app.py` is separate). Import this GitHub repository into
+Vercel and set the project root to the repository root. `vercel.json`
+explicitly configures the Python runtime and routes requests to the FastAPI
+app; `requirements.txt` lists its dependencies. After pushing deployment
 changes to the connected GitHub branch, wait for Vercel to finish a new
 deployment before opening the production domain.
 
