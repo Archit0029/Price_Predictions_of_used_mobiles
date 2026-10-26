@@ -1,4 +1,5 @@
 import argparse
+import json
 from pathlib import Path
 
 import numpy as np
@@ -7,27 +8,45 @@ import pandas as pd
 np.random.seed(42)
 
 
-def generate_phones_data(n=3500):
+def generate_phones_data(n=8000, catalog_path=None):
     brands = {
-        'Apple': (45000, 130000, 0.78),
-        'Samsung': (12000, 110000, 0.68),
-        'OnePlus': (20000, 70000, 0.66),
-        'Xiaomi': (9000, 45000, 0.58),
-        'Realme': (8000, 35000, 0.55),
-        'Vivo': (10000, 50000, 0.57),
-        'iQOO': (14000, 55000, 0.63),
+        'Apple': (45000, 150000, 0.78),
+        'Samsung': (15000, 150000, 0.68),
+        'Xiaomi': (15000, 80000, 0.60),
+        'Redmi': (8000, 35000, 0.55),
+        'POCO': (8000, 35000, 0.56),
+        'OnePlus': (20000, 75000, 0.66),
+        'OPPO': (15000, 95000, 0.60),
+        'vivo': (12000, 95000, 0.60),
+        'iQOO': (15000, 60000, 0.63),
+        'realme': (10000, 60000, 0.57),
+        'Motorola': (10000, 95000, 0.58),
+        'Google': (40000, 125000, 0.68),
+        'Nothing': (20000, 60000, 0.63),
+        'CMF': (14000, 22000, 0.56),
+        'HONOR': (20000, 90000, 0.59),
+        'Huawei': (45000, 180000, 0.66),
+        'Sony': (45000, 140000, 0.65),
+        'ASUS': (60000, 120000, 0.64),
+        'TECNO': (10000, 85000, 0.54),
+        'Infinix': (12000, 30000, 0.54),
+        'Lava': (8000, 22000, 0.53),
+        'Nokia': (8000, 50000, 0.52),
+        'Lenovo': (12000, 50000, 0.55),
+        'TCL': (14000, 30000, 0.53),
+        'ZTE': (35000, 70000, 0.58),
     }
 
+    brand_names = list(brands.keys())
     rows = []
     for _ in range(n):
-        brand = np.random.choice(list(brands.keys()))
+        brand = np.random.choice(brand_names)
         min_p, max_p, retention_base = brands[brand]
 
         ram = np.random.choice([4, 6, 8, 12, 16], p=[0.15, 0.25, 0.35, 0.20, 0.05])
         storage = np.random.choice([64, 128, 256, 512], p=[0.15, 0.45, 0.30, 0.10])
-        has_5g = np.random.choice([1, 0], p=[0.65, 0.35])
+        has_5g = np.random.choice([1, 0], p=[0.60, 0.40])
 
-        # Original invoice price correlated with brand, RAM, and storage
         base_price = np.random.uniform(min_p, max_p)
         original_price = int(round((base_price + (ram * 800) + (storage * 35)) / 100) * 100)
 
@@ -36,19 +55,18 @@ def generate_phones_data(n=3500):
         body_condition = np.random.choice([5, 4, 3, 2, 1], p=[0.25, 0.35, 0.25, 0.10, 0.05])
 
         battery_health = max(65, int(100 - (months_used * np.random.uniform(0.4, 0.75))))
-        under_warranty = 1 if (months_used <= 12 and np.random.rand() > 0.15) or (months_used > 12 and np.random.rand() > 0.75) else 0
-        has_box_bill = np.random.choice([1, 0], p=[0.60, 0.40])
+        under_warranty = np.random.choice([1, 0], p=[0.40, 0.60])
+        has_box_bill = np.random.choice([1, 0], p=[0.50, 0.50])
 
-        # Realistic non-linear depreciation formula
         age_decay = np.exp(-0.028 * months_used)
         cond_factor = (screen_condition * 0.12) + (body_condition * 0.05) + 0.15
         battery_factor = 1.0 if battery_health >= 85 else (0.88 if battery_health >= 78 else 0.74)
-        five_g_factor = 1.08 if has_5g else 0.94
-        warranty_bonus = 1.10 if under_warranty else 0.98
-        box_bonus = 1.08 if has_box_bill else 0.92
+        five_g_factor = 1.10 if has_5g else 0.90
+        warranty_bonus = 1.12 if under_warranty else 0.96
+        box_bonus = 1.10 if has_box_bill else 0.90
 
         resale_price = original_price * retention_base * age_decay * cond_factor * battery_factor * five_g_factor * warranty_bonus * box_bonus
-        noise = np.random.normal(1.0, 0.02)
+        noise = np.random.normal(1.0, 0.015)
         resale_price = max(1500, int(round((resale_price * noise) / 50) * 50))
 
         rows.append({
@@ -96,7 +114,6 @@ def generate_accessories_data(n=1500):
         under_warranty = 1 if months_used < 12 and np.random.rand() > 0.2 else 0
         has_box_accessories = np.random.choice([1, 0], p=[0.65, 0.35])
 
-        # Accessories depreciate faster than phones
         age_decay = np.exp(-0.045 * months_used)
         cond_factor = (physical_condition * 0.13) + (battery_backup_score * 0.05) + 0.10
         warranty_bonus = 1.12 if under_warranty else 1.0
@@ -122,7 +139,7 @@ def generate_accessories_data(n=1500):
 
 def main():
     parser = argparse.ArgumentParser(description='Generate synthetic used mobile and accessory resale datasets.')
-    parser.add_argument('--phones', type=int, default=1500, help='Number of phone rows to generate.')
+    parser.add_argument('--phones', type=int, default=8000, help='Number of phone rows to generate.')
     parser.add_argument('--accessories', type=int, default=1500, help='Number of accessory rows to generate.')
     parser.add_argument(
         '--output-dir',
