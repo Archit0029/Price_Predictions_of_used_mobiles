@@ -1,0 +1,184 @@
+{
+  "countries": [
+    {"code": "IN", "name": "India", "currency": "INR", "symbol": "₹", "rate_from_inr": 1, "locale": "en-IN"},
+    {"code": "US", "name": "United States", "currency": "USD", "symbol": "$", "rate_from_inr": 0.012, "locale": "en-US"},
+    {"code": "GB", "name": "United Kingdom", "currency": "GBP", "symbol": "£", "rate_from_inr": 0.0094, "locale": "en-GB"},
+    {"code": "AE", "name": "United Arab Emirates", "currency": "AED", "symbol": "د.إ", "rate_from_inr": 0.044, "locale": "en-AE"},
+    {"code": "CA", "name": "Canada", "currency": "CAD", "symbol": "CA$", "rate_from_inr": 0.0165, "locale": "en-CA"},
+    {"code": "AU", "name": "Australia", "currency": "AUD", "symbol": "A$", "rate_from_inr": 0.0185, "locale": "en-AU"},
+    {"code": "SG", "name": "Singapore", "currency": "SGD", "symbol": "S$", "rate_from_inr": 0.0153, "locale": "en-SG"},
+    {"code": "DE", "name": "Germany", "currency": "EUR", "symbol": "€", "rate_from_inr": 0.011, "locale": "de-DE"}
+  ],
+  "brands": [
+    {"name": "Apple", "models": [
+      {"name": "iPhone 17 Pro Max", "reference_price_inr": 149900},
+      {"name": "iPhone 17 Pro", "reference_price_inr": 129900},
+      {"name": "iPhone 17", "reference_price_inr": 82900},
+      {"name": "iPhone 16 Pro Max", "reference_price_inr": 144900},
+      {"name": "iPhone 16 Pro", "reference_price_inr": 119900},
+      {"name": "iPhone 16 Plus", "reference_price_inr": 89900},
+      {"name": "iPhone 16", "reference_price_inr": 69900},
+      {"name": "iPhone 16e", "reference_price_inr": 59900},
+      {"name": "iPhone 15", "reference_price_inr": 59900},
+      {"name": "iPhone 14", "reference_price_inr": 49900}
+    ]},
+    {"name": "Samsung", "models": [
+      {"name": "Galaxy S25 Ultra", "reference_price_inr": 129999},
+      {"name": "Galaxy S25+", "reference_price_inr": 99999},
+      {"name": "Galaxy S25", "reference_price_inr": 80999},
+      {"name": "Galaxy S24 Ultra", "reference_price_inr": 119999},
+      {"name": "Galaxy Z Fold6", "reference_price_inr": 164999},
+      {"name": "Galaxy Z Flip6", "reference_price_inr": 109999},
+      {"name": "Galaxy A56 5G", "reference_price_inr": 41999},
+      {"name": "Galaxy A36 5G", "reference_price_inr": 32999},
+      {"name": "Galaxy A26 5G", "reference_price_inr": 24999},
+      {"name": "Galaxy M55 5G", "reference_price_inr": 26999}
+    ]},
+    {"name": "Xiaomi", "models": [
+      {"name": "Xiaomi 15", "reference_price_inr": 64999},
+      {"name": "Xiaomi 14", "reference_price_inr": 59999},
+      {"name": "Xiaomi 14 Civi", "reference_price_inr": 42999},
+      {"name": "Xiaomi 13 Pro", "reference_price_inr": 79999}
+    ]},
+    {"name": "Redmi", "models": [
+      {"name": "Redmi Note 14 Pro+ 5G", "reference_price_inr": 32999},
+      {"name": "Redmi Note 14 Pro 5G", "reference_price_inr": 24999},
+      {"name": "Redmi Note 14 5G", "reference_price_inr": 17999},
+      {"name": "Redmi Note 13 Pro+ 5G", "reference_price_inr": 29999},
+      {"name": "Redmi 14C", "reference_price_inr": 9999},
+      {"name": "Redmi A4 5G", "reference_price_inr": 8499}
+    ]},
+    {"name": "POCO", "models": [
+      {"name": "POCO F7", "reference_price_inr": 31999},
+      {"name": "POCO F6", "reference_price_inr": 24999},
+      {"name": "POCO X7 Pro", "reference_price_inr": 26999},
+      {"name": "POCO X7", "reference_price_inr": 19999},
+      {"name": "POCO M7 Pro 5G", "reference_price_inr": 14999},
+      {"name": "POCO C75", "reference_price_inr": 7999}
+    ]},
+    {"name": "OnePlus", "models": [
+      {"name": "OnePlus 13", "reference_price_inr": 69999},
+      {"name": "OnePlus 13R", "reference_price_inr": 42999},
+      {"name": "OnePlus 12", "reference_price_inr": 64999},
+      {"name": "OnePlus 12R", "reference_price_inr": 39999},
+      {"name": "OnePlus Nord 5", "reference_price_inr": 31999},
+      {"name": "OnePlus Nord CE5", "reference_price_inr": 24999},
+      {"name": "OnePlus Nord 4", "reference_price_inr": 29999}
+    ]},
+    {"name": "OPPO", "models": [
+      {"name": "Find X8 Pro", "reference_price_inr": 99999},
+      {"name": "Find X8", "reference_price_inr": 69999},
+      {"name": "Reno13 Pro 5G", "reference_price_inr": 49999},
+      {"name": "Reno13 5G", "reference_price_inr": 37999},
+      {"name": "F29 Pro 5G", "reference_price_inr": 27999},
+      {"name": "A5 Pro 5G", "reference_price_inr": 17999}
+    ]},
+    {"name": "vivo", "models": [
+      {"name": "X200 Pro", "reference_price_inr": 94999},
+      {"name": "X200", "reference_price_inr": 65999},
+      {"name": "V50", "reference_price_inr": 34999},
+      {"name": "V40 Pro", "reference_price_inr": 49999},
+      {"name": "T4 5G", "reference_price_inr": 21999},
+      {"name": "Y29 5G", "reference_price_inr": 13999}
+    ]},
+    {"name": "iQOO", "models": [
+      {"name": "iQOO 13", "reference_price_inr": 54999},
+      {"name": "iQOO Neo 10", "reference_price_inr": 31999},
+      {"name": "iQOO Neo 10R", "reference_price_inr": 26999},
+      {"name": "iQOO Z10", "reference_price_inr": 21999},
+      {"name": "iQOO Z9", "reference_price_inr": 19999}
+    ]},
+    {"name": "realme", "models": [
+      {"name": "realme GT 7 Pro", "reference_price_inr": 59999},
+      {"name": "realme GT 6", "reference_price_inr": 40999},
+      {"name": "realme 14 Pro+", "reference_price_inr": 29999},
+      {"name": "realme 14 Pro", "reference_price_inr": 24999},
+      {"name": "realme P3 Pro", "reference_price_inr": 23999},
+      {"name": "realme Narzo 70 Pro", "reference_price_inr": 19999},
+      {"name": "realme C75", "reference_price_inr": 11999}
+    ]},
+    {"name": "Motorola", "models": [
+      {"name": "Edge 50 Ultra", "reference_price_inr": 54999},
+      {"name": "Edge 50 Pro", "reference_price_inr": 31999},
+      {"name": "Edge 50 Fusion", "reference_price_inr": 22999},
+      {"name": "razr 50 Ultra", "reference_price_inr": 99999},
+      {"name": "moto g85 5G", "reference_price_inr": 17999},
+      {"name": "moto g45 5G", "reference_price_inr": 10999}
+    ]},
+    {"name": "Google", "models": [
+      {"name": "Pixel 9 Pro XL", "reference_price_inr": 124999},
+      {"name": "Pixel 9 Pro", "reference_price_inr": 109999},
+      {"name": "Pixel 9", "reference_price_inr": 79999},
+      {"name": "Pixel 8a", "reference_price_inr": 52999},
+      {"name": "Pixel 8", "reference_price_inr": 75999}
+    ]},
+    {"name": "Nothing", "models": [
+      {"name": "Phone (3)", "reference_price_inr": 59999},
+      {"name": "Phone (3a) Pro", "reference_price_inr": 29999},
+      {"name": "Phone (3a)", "reference_price_inr": 24999},
+      {"name": "Phone (2a) Plus", "reference_price_inr": 25999},
+      {"name": "Phone (2a)", "reference_price_inr": 23999}
+    ]},
+    {"name": "CMF", "models": [
+      {"name": "Phone 2 Pro", "reference_price_inr": 18999},
+      {"name": "Phone 1", "reference_price_inr": 15999}
+    ]},
+    {"name": "HONOR", "models": [
+      {"name": "Magic7 Pro", "reference_price_inr": 89999},
+      {"name": "200 Pro", "reference_price_inr": 57999},
+      {"name": "200", "reference_price_inr": 39999},
+      {"name": "X9c 5G", "reference_price_inr": 25999},
+      {"name": "X9b", "reference_price_inr": 25999}
+    ]},
+    {"name": "Huawei", "models": [
+      {"name": "Pura 70 Pro", "reference_price_inr": 99999},
+      {"name": "Mate X6", "reference_price_inr": 199999},
+      {"name": "Nova 13 Pro", "reference_price_inr": 59999}
+    ]},
+    {"name": "Sony", "models": [
+      {"name": "Xperia 1 VI", "reference_price_inr": 139999},
+      {"name": "Xperia 5 V", "reference_price_inr": 99999},
+      {"name": "Xperia 10 VI", "reference_price_inr": 49999}
+    ]},
+    {"name": "ASUS", "models": [
+      {"name": "ROG Phone 9 Pro", "reference_price_inr": 119999},
+      {"name": "ROG Phone 8", "reference_price_inr": 99999},
+      {"name": "Zenfone 11 Ultra", "reference_price_inr": 89999}
+    ]},
+    {"name": "TECNO", "models": [
+      {"name": "Phantom V Fold2", "reference_price_inr": 89999},
+      {"name": "Camon 40 Pro 5G", "reference_price_inr": 24999},
+      {"name": "Pova 6 Pro 5G", "reference_price_inr": 19999},
+      {"name": "Spark 30 Pro", "reference_price_inr": 13999}
+    ]},
+    {"name": "Infinix", "models": [
+      {"name": "ZERO 40 5G", "reference_price_inr": 27999},
+      {"name": "GT 20 Pro", "reference_price_inr": 24999},
+      {"name": "NOTE 40 Pro 5G", "reference_price_inr": 21999},
+      {"name": "HOT 50 Pro+", "reference_price_inr": 16999}
+    ]},
+    {"name": "Lava", "models": [
+      {"name": "Agni 3", "reference_price_inr": 20999},
+      {"name": "Blaze Duo 5G", "reference_price_inr": 18999},
+      {"name": "Blaze Curve 5G", "reference_price_inr": 17999},
+      {"name": "Yuva 3 Pro", "reference_price_inr": 8999}
+    ]},
+    {"name": "Nokia", "models": [
+      {"name": "XR21", "reference_price_inr": 49999},
+      {"name": "G42 5G", "reference_price_inr": 12999},
+      {"name": "C32", "reference_price_inr": 8999}
+    ]},
+    {"name": "Lenovo", "models": [
+      {"name": "Legion Y70", "reference_price_inr": 49999},
+      {"name": "K14 Plus", "reference_price_inr": 15999}
+    ]},
+    {"name": "TCL", "models": [
+      {"name": "50 Pro NxtPaper", "reference_price_inr": 27999},
+      {"name": "50 5G", "reference_price_inr": 16999}
+    ]},
+    {"name": "ZTE", "models": [
+      {"name": "nubia Z60 Ultra", "reference_price_inr": 64999},
+      {"name": "nubia Flip 5G", "reference_price_inr": 49999}
+    ]}
+  ]
+}
