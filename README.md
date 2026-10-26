@@ -61,11 +61,12 @@ streamlit run app.py
 ## Deploy to Vercel
 
 The Vercel deployment uses the FastAPI app in `api/index.py` (the local
-Streamlit app is separate). Import this GitHub repository into Vercel and keep
-the project root set to the repository root. Vercel uses `vercel.json` and
-`requirements.txt` to configure the Python function. After pushing deployment
-changes to the connected GitHub branch, wait for Vercel to finish a new
-deployment before opening the production domain.
+Streamlit app is separate). Import this GitHub repository into Vercel and set
+the project root to the repository root. The `pyproject.toml` entrypoint
+setting tells Vercel which FastAPI app to serve, and `requirements.txt` lists
+its dependencies. After pushing deployment changes to the connected GitHub
+branch, wait for Vercel to finish a new deployment before opening the
+production domain.
 
 The prediction endpoint is available at `/api/predict` and accepts a JSON POST
 request. The `/` route serves the predictor page.
