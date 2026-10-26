@@ -37,7 +37,7 @@ def generate_phones_data(n=3500):
 
         battery_health = max(65, int(100 - (months_used * np.random.uniform(0.4, 0.75))))
         under_warranty = 1 if (months_used <= 12 and np.random.rand() > 0.15) or (months_used > 12 and np.random.rand() > 0.75) else 0
-        has_box_bill = np.random.choice([1, 0], p=[0.72, 0.28])
+        has_box_bill = np.random.choice([1, 0], p=[0.60, 0.40])
 
         # Realistic non-linear depreciation formula
         age_decay = np.exp(-0.028 * months_used)
@@ -45,7 +45,7 @@ def generate_phones_data(n=3500):
         battery_factor = 1.0 if battery_health >= 85 else (0.88 if battery_health >= 78 else 0.74)
         five_g_factor = 1.08 if has_5g else 0.94
         warranty_bonus = 1.10 if under_warranty else 0.98
-        box_bonus = 1.04 if has_box_bill else 0.95
+        box_bonus = 1.08 if has_box_bill else 0.92
 
         resale_price = original_price * retention_base * age_decay * cond_factor * battery_factor * five_g_factor * warranty_bonus * box_bonus
         noise = np.random.normal(1.0, 0.02)
